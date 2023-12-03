@@ -2,7 +2,7 @@ import axios from "axios";
 
 const token = localStorage.getItem("token") || "";
 
-export const baseURL = "https://roc-8-testbackend-1q6r.vercel.app/";
+export const baseURL = "https://roc8-backend.onrender.com";
 
 export const axiosInstance = axios.create({
   baseURL: `${baseURL}`,

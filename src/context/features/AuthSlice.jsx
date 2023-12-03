@@ -4,7 +4,7 @@ import { axiosInstance } from "../../utils/instance";
 
 export const login = createAsyncThunk("auth/login", async (user) => {
   const response = await axios.post(
-    "https://roc-8-testbackend-1q6r.vercel.app//auth/login",
+    "https://roc8-backend.onrender.com/auth/login",
     user
   );
   return response.data;
@@ -12,7 +12,7 @@ export const login = createAsyncThunk("auth/login", async (user) => {
 
 export const register = createAsyncThunk("auth/register", async (user) => {
   const response = await axios.post(
-    "https://roc-8-testbackend-1q6r.vercel.app//auth/signup",
+    "https://roc8-backend.onrender.com/auth/signup",
     user
   );
   return response.data;
@@ -20,7 +20,7 @@ export const register = createAsyncThunk("auth/register", async (user) => {
 
 export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
   const response = await axiosInstance.post(
-    "https://roc-8-testbackend-1q6r.vercel.app//auth/"
+    "https://roc8-backend.onrender.com/auth/"
   );
   return response.data;
 });
