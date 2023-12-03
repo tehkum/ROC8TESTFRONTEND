@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #c2c2c2;
+    padding: 0 20px;
+}
+
+nav .header-logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav .header-logo span {
+    font-size: 22px;
+    color: orange;
+}
+
+.navlink {
+    color: rgba(31, 41, 55, 1);
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 10px;
+}

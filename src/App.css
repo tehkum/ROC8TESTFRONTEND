@@ -1,0 +1,40 @@
+.button-primary {
+    background-color: rgba(59, 130, 246, 1);
+    color: white;
+    border: 1px solid rgba(59, 130, 246, 1);
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+}
+
+.button-primary:hover {
+    background-color: rgba(59, 130, 246, 0.8);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+.button-secondary {
+    background-color: inherit;
+    color: rgba(59, 130, 246, 1);
+    border: 1px solid rgba(59, 130, 246, 1);
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+}
+
+.button-secondary:hover {
+    background-color: rgba(128, 128, 128, 0.164);
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn-grp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ::-webkit-scrollbar {
+    display: none;
+} */
