@@ -6,8 +6,6 @@ import Sidebar from "../components/SideBar/Sidebar";
 import LineData from "../components/LineGraph/Line";
 import MenuIcon from "@mui/icons-material/Menu";
 import { navToggle } from "../context/features/filterSlice";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import copy from "copy-to-clipboard";
 
 export default function LineAnalysis() {
   const { data, status } = useSelector((state) => state.data);
@@ -32,6 +30,10 @@ export default function LineAnalysis() {
       window.removeEventListener("resize", handleResize);
     };
   }, [dispatch, status]);
+
+  useEffect(() => {
+    localStorage.setItem("type", type);
+  }, [type]);
 
   useEffect(() => {
     if (status !== "succeeded") {
@@ -72,12 +74,6 @@ export default function LineAnalysis() {
         </button>
 
         <LineData type={type} data={data} />
-        <p
-          className="copy-btn"
-          onClick={() => copy(`http://localhost:5173/line/${type}`)}
-        >
-          <ContentCopyIcon /> Copy Link
-        </p>
       </div>
     </div>
   );

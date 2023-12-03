@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import { fetchFilter } from "../../context/features/filterSlice";
 
-function LineData({ data, type }) {
+function LineData({ type, data }) {
   const { minDate, maxDate, gender, age } = useSelector(
     (state) => state.filter
   );

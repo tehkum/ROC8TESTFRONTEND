@@ -13,7 +13,7 @@
 .sidebar-filter-date {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 
 .sidebar-filter-date p,
@@ -60,7 +60,7 @@
 .sidebar-buttons {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 10px;
     gap: 5px;
 }
 
@@ -72,3 +72,8 @@
     width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+    .phone-btn {
+        display: none;
+    }
+}

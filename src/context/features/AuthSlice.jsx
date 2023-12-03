@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { axiosInstance } from "../../utils/instance";
 
 export const login = createAsyncThunk("auth/login", async (user) => {
   const response = await axios.post("http://localhost:3000/auth/login", user);
@@ -12,9 +13,7 @@ export const register = createAsyncThunk("auth/register", async (user) => {
 });
 
 export const fetchUser = createAsyncThunk("auth/fetchUser", async () => {
-  const response = await axios.post("http://localhost:3000/auth/", {
-    headers: { Authorization: localStorage.getItem("token") },
-  });
+  const response = await axiosInstance.post("http://localhost:3000/auth/");
   return response.data;
 });
 

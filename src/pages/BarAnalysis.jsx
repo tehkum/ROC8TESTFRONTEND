@@ -14,6 +14,7 @@ export default function BarAnalysis() {
   const { data, status } = useSelector((state) => state.data);
   const navigate = useNavigate();
   const [isNavVisible, setIsNavVisible] = useState(window.innerWidth > 768);
+ 
 
   useEffect(() => {
     if (status !== "succeeded") {

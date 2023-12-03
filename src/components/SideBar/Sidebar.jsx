@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   minDateFilter,
   maxDateFilter,
@@ -8,27 +9,48 @@ import {
 } from "../../context/features/filterSlice";
 import "./sidebar.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const { minDate, maxDate, gender, age } = useSelector(
     (state) => state.filter
   );
+  const [searchParams, setSearchParams] = useSearchParams({});
+
+  useEffect(() => {
+    dispatch(minDateFilter(searchParams.get("minDate") || "none"));
+    dispatch(maxDateFilter(searchParams.get("maxDate") || "none"));
+    dispatch(ageFilter(searchParams.get("age") || "all"));
+    dispatch(genderFilter(searchParams.get("gender") || "both"));
+  }, [dispatch, searchParams]);
 
   const genderHandler = (e) => {
     const { id } = e.target;
+    setSearchParams({
+      minDate: minDate,
+      maxDate: maxDate,
+      age: age,
+      gender: gender,
+    });
     dispatch(genderFilter(id));
   };
 
   const ageHandler = (e) => {
     const { id } = e.target;
+    setSearchParams({
+      minDate: minDate,
+      maxDate: maxDate,
+      age: age,
+      gender: gender,
+    });
     dispatch(ageFilter(id));
   };
 
   return (
     <div className="sidebar-container">
       <button
-        className="button-secondary"
+        className="button-secondary phone-btn"
         onClick={() => dispatch(navToggle())}
       >
         close
@@ -45,7 +67,15 @@ export default function Sidebar() {
             type="date"
             id="date-from"
             value={localStorage.getItem("minDate") || minDate}
-            onChange={(e) => dispatch(minDateFilter(e.target.value))}
+            onChange={(e) => {
+              dispatch(minDateFilter(e.target.value));
+              setSearchParams({
+                minDate: minDate,
+                maxDate: maxDate,
+                age: age,
+                gender: gender,
+              });
+            }}
             min="2022-10-04"
             max={maxDate !== "none" ? maxDate : "2022-10-30"}
           />
@@ -56,7 +86,15 @@ export default function Sidebar() {
             type="date"
             id="date-to"
             value={localStorage.getItem("maxDate") || maxDate}
-            onChange={(e) => dispatch(maxDateFilter(e.target.value))}
+            onChange={(e) => {
+              dispatch(maxDateFilter(e.target.value));
+              setSearchParams({
+                minDate: minDate,
+                maxDate: maxDate,
+                age: age,
+                gender: gender,
+              });
+            }}
             min={minDate !== "none" ? minDate : "2022-10-04"}
             max="2022-10-30"
           />
