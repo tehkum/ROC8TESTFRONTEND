@@ -98,8 +98,15 @@ form {
     cursor: pointer;
 }
 
+.homepage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 768px) {
     .page-nav-show {
         display: none;
     }
 }
+
