@@ -2,7 +2,7 @@ import axios from "axios";
 
 const token = localStorage.getItem("token") || "";
 
-export const baseURL = "http://localhost:3000";
+export const baseURL = "https://roc8-backend.onrender.com";
 
 export const axiosInstance = axios.create({
   baseURL: `${baseURL}`,

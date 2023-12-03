@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchData = createAsyncThunk("data/fetchData", async () => {
-  const response = await axios.get("http://localhost:3000/data/", {
+  const response = await axios.get("https://roc8-backend.onrender.com/data/", {
     headers: { Authorization: localStorage.getItem("token") },
   });
   return response.data;
