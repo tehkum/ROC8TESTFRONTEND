@@ -51,6 +51,7 @@ export default function LoginPage() {
           <button className="button-primary" type="submit">
             Login
           </button>
+          <p>If it takes long time to load, wait for 30-40 seconds for the server</p>
         </form>
       </section>
     </div>
